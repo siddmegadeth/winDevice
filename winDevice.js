@@ -16,11 +16,14 @@
       if(flag)
       {
         log = console.log.bind(console);
+        error = console.error.bind(console);
       }
       if(!flag)
       {
         log = function(){};
+        error = function(){};
         console.log = function(){};
+        console.error = function(){};
       }
     }
     this.device = function(flag)
