@@ -19,4 +19,50 @@ for device ready or simply angularjs initialization in a  browser. it simply hel
 
 
 #API Usage
+Kindly include the file 
+<script src="winDevice.js"></script> 
+In your Code after cordova.js script file.
+
+
+
+In a js file where the application is initialized 
+
+
+var win = new winDevice("myApp"); //Bootstrap Cordova Or Browser Based App
+win.device(false);  //true for cordova else false for browser
+win.log(true);  //Enable console.log or Disable console.log
+win.info();  //get Info on platform initialization
+
+app = angular.module("myApp",[]);
+app.config(function($routeProvider)
+{
+   $routeProvider
+   .when("/",
+    {
+     templateUrl: "templates/somehtml.html",
+     controller: "someCtrlCtrl"
+   })
+   
+   .otherwise({redirectTo :'/'});
+});
+
+
+
+var win = new winDevice("myApp"); //Bootstrap Cordova Or Browser Based App
+This initialized  the winDevice.
+
+win.device(false);  
+This tells which platform to use 
+true : This  initilializes the code for cordova and bootstrap the apps.
+false : This  initilializes the code for browser and bootstrap the apps and can
+        be viewed in a browser. change values eitehr true or false while development to see teh results.
+        
+win.log(true);
+Enable console.log or Disable console.log. Once win.log is initialized the  there is no need to 
+write console.log . simply user can refer log("some message");
+If true then log is enabled in the code and can be displayed in the browser console.
+when switchd to false it completly disables the console.log /log and there are no logs displayed in the console
+pan application. this could be used to enable/disable log messages while seitching to deployment.
+ 
+win.info();  //get Info on platform initialization
 
