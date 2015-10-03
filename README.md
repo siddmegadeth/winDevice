@@ -63,6 +63,9 @@ write console.log . simply user can refer log("some message");
 If true then log is enabled in the code and can be displayed in the browser console.
 when switchd to false it completly disables the console.log /log and there are no logs displayed in the console
 pan application. this could be used to enable/disable log messages while seitching to deployment.
+example :
+log("Some Log");
+error("Some Error");
  
 win.info();  //get Info on platform initialization
 
