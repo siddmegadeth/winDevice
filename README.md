@@ -69,3 +69,4 @@ win.info();  //get Info on platform initialization
 #NOTE:
 Ensure the app is not initialized from html using ng-app="myApp" and remove any reference if you are using this API
 Currenntly use myApp to test this APi as youur app name
+No need to add reference to cordova.js as it is added automatically based on device type. if cordova is detedted then  cordova.js is added.
