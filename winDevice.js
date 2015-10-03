@@ -41,10 +41,6 @@
        }
        if(!flag)
        {
-         var fileref=document.createElement('script')
-         fileref.setAttribute("type","text/javascript")
-         fileref.setAttribute("src","cordova.js");
-         document.getElementsByTagName("head")[0].appendChild(fileref)
          window.onload = function()
          {
            angular.bootstrap(document,["myApp"]);
