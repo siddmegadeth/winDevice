@@ -1,5 +1,11 @@
 (function(window,undefined)
 {
+  function generateContact()
+  {
+    log("Genrating Contact");
+
+  }
+
   function winDevice(name)
   {
     var appName = name;
@@ -22,6 +28,11 @@
       infoType.device = flag;
       if(flag)
       {
+
+        var fileref=document.createElement('script')
+        fileref.setAttribute("type","text/javascript")
+        fileref.setAttribute("src","cordova.js");
+        document.getElementsByTagName("head")[0].appendChild(fileref);
         document.addEventListener("deviceready",function()
         {
           angular.bootstrap(document,[appName]);
@@ -30,6 +41,10 @@
        }
        if(!flag)
        {
+         var fileref=document.createElement('script')
+         fileref.setAttribute("type","text/javascript")
+         fileref.setAttribute("src","cordova.js");
+         document.getElementsByTagName("head")[0].appendChild(fileref)
          window.onload = function()
          {
            angular.bootstrap(document,["myApp"]);
@@ -49,6 +64,22 @@
       }
       log("Logging : "+infoType.log);
     }
+    this.api = {};
+    this.api.contacts = function(success,failure)
+    {
+        log("Cordova Contact API");
+        if(navigator.contacts)
+        {
+          success();
+        }
+        else
+        {
+          generateContact();
+          failure();
+        }
+
+    }
+
  }
   window.winDevice = winDevice;
 })(window)
