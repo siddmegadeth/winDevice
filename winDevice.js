@@ -3,7 +3,6 @@
   function generateContact()
   {
     log("Genrating Contact");
-
   }
   var isAuto = false;
   var devType=false;
@@ -58,7 +57,6 @@
         log("Device Ready");
       },false);
     }
-
     var infoType  = {};
     this.log = function(flag)
     {
@@ -105,11 +103,9 @@
       return this;
     }
     this.cordova = {};
-
     this.cordova.contacts = function(success,failure)
     {
         log("Cordova Contact API");
-
         if(navigator.contacts)
         {
           success();
@@ -132,7 +128,6 @@
     //Error
     return e;
   }
-
  }
   window.winDevice = winDevice;
 })(window)
