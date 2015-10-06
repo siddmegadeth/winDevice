@@ -27,13 +27,18 @@ In your Code after cordova.js script file.
 
 In a js file where the application is initialized 
 
+// inject angularjs dependencies
+var inject = ["ngAside","ngCookies","ui.bootstrap","ngRoute","ngAnimate","ngTouch","authServices"];
 
-var win = new winDevice("myApp"); //Bootstrap Cordova Or Browser Based App
-win.device(false);  //true for cordova else false for browser
-win.log(true);  //Enable console.log or Disable console.log
+var win = new winDevice("newApp",inject,true); //Bootstrap Cordova Or Browser Based App ..true to enforce cordova.js on browser if required
+
+var app = win.device();  // init App
+
+win.log(true);  //Enable console.log or Disable console.log and Enable console.error or Disable console.error
+
 win.info();  //get Info on platform initialization
 
-app = angular.module("myApp",[]);
+
 app.config(function($routeProvider)
 {
    $routeProvider
@@ -47,15 +52,13 @@ app.config(function($routeProvider)
 });
 
 
-
-var win = new winDevice("myApp"); //Bootstrap Cordova Or Browser Based App
+var inject = ["ngAside","ngCookies","ui.bootstrap","ngRoute","ngAnimate","ngTouch","authServices"];
+var win = new winDevice("newApp",inject,true);  //Bootstrap Cordova Or Browser Based App
 This initialized  the winDevice.
 
-win.device(false);  
-This tells which platform to use 
-true : This  initilializes the code for cordova and bootstrap the apps.
-false : This  initilializes the code for browser and bootstrap the apps and can
-        be viewed in a browser. change values eitehr true or false while development to see teh results.
+var app = win.device();
+This tells returns AngularJS Object to use 
+
         
 win.log(true);
 Enable console.log or Disable console.log. Once win.log is initialized the  there is no need to 
@@ -71,5 +74,4 @@ win.info();  //get Info on platform initialization
 
 #NOTE:
 Ensure the app is not initialized from html using ng-app="myApp" and remove any reference if you are using this API
-Currenntly use myApp to test this APi as youur app name
-No need to add reference to cordova.js as it is added automatically based on device type. if cordova is detedted then  cordova.js is added.
+No need to add reference to cordova.js as it is added automatically based on device type. if cordova platform is detected then  cordova.js is added.
