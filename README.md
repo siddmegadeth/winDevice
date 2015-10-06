@@ -17,16 +17,16 @@ looking to view the angularjs app on the browser.. just change the param and ref
 winDevice sinply allows programmers to bootstrap the angularjs app withoout writing the single  initialization code
 for device ready or simply angularjs initialization in a  browser. it simply helps bootstrap the App rapidly.
 
-
+```
 #API Usage
 Kindly include the file 
 <script src="winDevice.js"></script> 
 In your Code after cordova.js script file.
-
+```
 
 
 In a js file where the application is initialized 
-
+```
 // inject angularjs dependencies
 var inject = ["ngAside","ngCookies","ui.bootstrap","ngRoute","ngAnimate","ngTouch","authServices"];
 
@@ -50,8 +50,8 @@ app.config(function($routeProvider)
    
    .otherwise({redirectTo :'/'});
 });
-
-
+```
+```
 var inject = ["ngAside","ngCookies","ui.bootstrap","ngRoute","ngAnimate","ngTouch","authServices"];
 var win = new winDevice("newApp",inject,true);  //Bootstrap Cordova Or Browser Based App
 This initialized  the winDevice.
@@ -71,7 +71,7 @@ log("Some Log");
 error("Some Error");
  
 win.info();  //get Info on platform initialization
-
+```
 #NOTE:
 Ensure the app is not initialized from html using ng-app="myApp" and remove any reference if you are using this API
 No need to add reference to cordova.js as it is added automatically based on device type. if cordova platform is detected then  cordova.js is added.
