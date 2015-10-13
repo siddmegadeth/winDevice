@@ -65,13 +65,16 @@
       {
         log = console.log.bind(console);
         error = console.error.bind(console);
+        warn = console.warn.bind(console);
       }
       if(!flag)
       {
         log = function(){};
         error = function(){};
+        warn = function(){};
         console.log = function(){};
         console.error = function(){};
+        console.warn = function(){};
       }
       return this;
     }
